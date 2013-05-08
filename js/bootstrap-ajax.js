@@ -92,7 +92,9 @@
       processData: false,
       statusCode: {
         200: function(data) {
-            $this.find('input[type=text],textarea').val('')
+            if(!data['preserve-form']) { 
+                $this.find('input[type=text],textarea').val('')
+            }
             processData(data, $this)
         },
         500: function() {
